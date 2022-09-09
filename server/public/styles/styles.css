@@ -7,6 +7,17 @@ h1{
     text-align: center;
 }
 
+.flex-wrapper {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .footer {
+    margin-top: auto;
+  }
+
 #inputArea{
     margin-top: 15px;
 
@@ -69,3 +80,7 @@ h1{
   tbody tr:nth-child(even) {
     background-color: #eee;
   }
+
+  footer{
+    background-color: skyblue;
+}
