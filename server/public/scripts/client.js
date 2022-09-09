@@ -18,7 +18,7 @@ function setupClickListeners (){
 function addTask (){
     let taskToAdd = {
         task: $('#taskIn').val(),
-        completed: false,
+        completed: false, //Do I need to change this?
     }
 console.log(taskToAdd);
  //need to add post route

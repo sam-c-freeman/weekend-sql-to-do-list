@@ -12,7 +12,7 @@ toDoRouter.get('/', (req, res) => {
     db.query(queryText).then(result =>{
         //sends back the results in an object
         res.send(result.rows)
-        console.log(results.rows);
+        console.log(result.rows);
         })
     .catch(error =>{
         console.log('error getting Koalas', error);
@@ -23,32 +23,29 @@ toDoRouter.get('/', (req, res) => {
 
 //Post Route to Add Task
 
-// koalaRouter.post('/', (req, res) => {
-//     const name = req.body.name;
-//     const gender = req.body.gender;
-//     const age = req.body.age;
-//     const readyForTransfer =req.body.readyForTransfer;
-//     const notes = req.body.notes;
+toDoRouter.post('/', (req, res) => {
+    const task = req.body.task;
+    const completed = req.body.completed;
     
-//     const queryText = `
-//     INSERT INTO "koalas"
-//     ("name", "gender", "age", "readyForTransfer", "notes")
-//     VALUES
-//     ($1, $2, $3, $4, $5);
-//     `;
+    const queryText = `
+    INSERT INTO "tasks"
+    ("task", "completed")
+    VALUES
+    ($1, $2);
+    `;
 
-//     const sqlValues = [name, gender, age, readyForTransfer, notes];
+    const sqlValues = [task, completed];
    
 
-//     db.query(queryText, sqlValues)
-//         .then(result =>{
-//         res.send(200);
-//     })
-//     .catch(error =>{
-//         console.log('error adding Koalas', error);
-//         res.sendStatus(500);
-//     })
-// });
+    db.query(queryText, sqlValues)
+        .then(result =>{
+        res.sendStatus(200);
+    })
+    .catch(error =>{
+        console.log('error adding tasks', error);
+        res.sendStatus(500);
+    })
+});
 
 //Put Route to mark as completed
 
