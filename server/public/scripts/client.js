@@ -12,6 +12,7 @@ $( document ).ready( function(){
 //on click, the addTask function will run to add task to database and eventually DOM
 function setupClickListeners (){
     $('#addTaskButton').on('click', addTask);
+    $('#viewTasks').on('click', '.false', markCompleted)
    
 }
 
@@ -66,4 +67,25 @@ function renderTasks (tasks){
         </tr>
       `);
     }
+  }
+
+  function markCompleted (){
+    let taskClicked = $(this).closest('tr').data('id');
+    // console.log (taskClicked);
+    $.ajax({
+        method: 'PUT',
+        url: `/tasks/${taskClicked}`
+      }).then((response) => {
+        
+        getTasks();
+      }).catch(function(error){
+        console.log('error in task PUT', error)
+        alert('Error while marking task complete');
+      })
+   
+
+    //how to get line through to work?
+   //then part of ajax put request?
+    // let taskClicked = $(this).closest('tr').css("text-decoration", "line-through");
+
   }

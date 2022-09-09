@@ -12,7 +12,7 @@ toDoRouter.get('/', (req, res) => {
     db.query(queryText).then(result =>{
         //sends back the results in an object
         res.send(result.rows)
-        console.log(result.rows);
+        // console.log(result.rows);
         })
     .catch(error =>{
         console.log('error getting Koalas', error);
@@ -48,6 +48,30 @@ toDoRouter.post('/', (req, res) => {
 });
 
 //Put Route to mark as completed
+
+toDoRouter.put('/:id', (req, res) => {
+    // console.log(req.params)
+    const taskId = req.params.id
+
+    console.log(taskId);
+
+    const sqlQuery = `
+    UPDATE "tasks"
+      SET "completed"=TRUE
+      WHERE "id" = $1;
+    `;
+    
+    const sqlValues = [taskId]
+    db.query(sqlQuery, sqlValues)
+        .then((dbRes) => {
+            res.sendStatus(200);
+        })
+        .catch((dbErr) => {
+            console.log('something broke in PUT', dbErr)
+        })
+})
+
+
 
 //Delete Route to Mark as Completed
 
