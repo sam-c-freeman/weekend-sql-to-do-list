@@ -18,10 +18,23 @@ function setupClickListeners (){
 function addTask (){
     let taskToAdd = {
         task: $('#taskIn').val(),
+        completed: false, //Do I need to change this?
     }
 console.log(taskToAdd);
  //need to add post route
 //clear input in then
+$.ajax({
+    type: 'POST',
+    url: '/tasks',
+    data: taskToAdd
+  }).then(function(response){
+    console.log(response);
+    getTasks();
+    $('#taskIn').val('');
+  }).catch(function(error){
+    console.log('error in adding task post', error);
+    alert('Error adding task.  Please try again!');
+  });
 }
 
 function getTasks(){
