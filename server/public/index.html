@@ -13,5 +13,40 @@
     <header>
         <h1>To-Do List App</h1>
     </header>
+    <section id="inputArea">
+        <input type="text" id="taskIn" placeholder="Add a Task">
+        <button id="addTaskButton">Add Task</button>
+    </section>
+    <main>
+        <h2>Current Tasks</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Mark Completed</th>
+            <th>Task</th>
+            <th>Delete Task</th>
+          </tr>
+        </thead>
+        <tbody id="viewTasks">
+            <tr>
+                <td>
+                    <input type="checkbox" id="markCompleted" name="markCompleted" value="Complete">
+                    <label for="markCompleted"></label>
+                </td>
+                <td>Sample Task</td>
+                <td><button>Delete</button></td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="markCompleted" name="markCompleted" value="Complete">
+                    <label for="markCompleted"></label>
+                </td>
+                <td>Sample Task</td>
+                <td><button>Delete</button></td>
+            </tr>
+        </tbody>
+      </table>
+    </main>
+
 </body>
 </html>
