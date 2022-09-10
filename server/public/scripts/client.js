@@ -13,6 +13,7 @@ $( document ).ready( function(){
 function setupClickListeners (){
     $('#addTaskButton').on('click', addTask);
     $('#viewTasks').on('click', '.false', markCompleted)
+    $('#viewTasks').on('click', '.deleteButton', deleteTask)
    
 }
 
@@ -40,7 +41,7 @@ $.ajax({
 
 function getTasks(){
  
-    // ajax call to server to get koalas
+    // ajax call to server to get tasks
     $.ajax({
       type: 'GET',
       url: '/tasks'
@@ -60,9 +61,9 @@ function renderTasks (tasks){
   
     for(let task of tasks){
       $('#viewTasks').append(`
-        <tr data-id="${task.id}">
-            <td><button class="${task.completed}">Mark Completed</button></td>
+        <tr data-id="${task.id}" class="${task.completed}">
             <td>${task.task}</td>
+            <td><button>Mark Completed</button></td>
             <td><button class="deleteButton">Delete</button></td>
         </tr>
       `);
@@ -76,7 +77,6 @@ function renderTasks (tasks){
         method: 'PUT',
         url: `/tasks/${taskClicked}`
       }).then((response) => {
-        
         getTasks();
       }).catch(function(error){
         console.log('error in task PUT', error)
@@ -89,3 +89,18 @@ function renderTasks (tasks){
     // let taskClicked = $(this).closest('tr').css("text-decoration", "line-through");
 
   }
+
+function deleteTask (){
+    let taskToDelete = $(this).closest('tr').data('id');
+    // console.log (taskClicked);
+    $.ajax({
+        method: 'DELETE',
+        url: `/tasks/${taskToDelete}`
+      }).then((response) => {
+        getTasks();
+      })
+    }
+
+
+
+  //moved where true/false was from button to row

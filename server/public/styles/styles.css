@@ -7,6 +7,10 @@ h1{
     text-align: center;
 }
 
+.true{
+    text-decoration: line-through;
+}
+
 .flex-wrapper {
     display: flex;
     min-height: 100vh;
@@ -20,8 +24,9 @@ h1{
 
 #inputArea{
     margin-top: 15px;
-
+    margin-bottom: 50px;
 }
+
 /* need table container? */
 
   table {

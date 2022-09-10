@@ -73,7 +73,28 @@ toDoRouter.put('/:id', (req, res) => {
 
 
 
-//Delete Route to Mark as Completed
+//Delete Route to delete task
+
+toDoRouter.delete('/:taskToDelete',  (req, res) => {
+    
+    const taskId = req.params.taskToDelete;
+    // console.log(taskId);
+  
+    const sqlQuery = `
+      DELETE FROM "tasks"
+        WHERE "id" = $1;
+        `
+  
+    const sqlValues = [taskId];
+    db.query(sqlQuery, sqlValues)
+      .then((dbRes) => {
+        res.sendStatus(200);
+      })
+        .catch((dbErr) => {
+          console.log('something broke in Delete', dbErr);
+        })
+  });
+  
 
 
 module.exports = toDoRouter;
