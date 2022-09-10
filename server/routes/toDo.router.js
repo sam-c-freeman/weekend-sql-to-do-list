@@ -7,7 +7,8 @@ const db = require('../modules/pool');
 // GET
 toDoRouter.get('/', (req, res) => {
     let queryText = `
-    SELECT * FROM "tasks";
+    SELECT * FROM "tasks"
+        ORDER BY "completed";
     `;
     db.query(queryText).then(result =>{
         //sends back the results in an object
