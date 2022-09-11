@@ -1,3 +1,5 @@
+
+
 header{
     background-color: skyblue;
    
@@ -6,11 +8,12 @@ h1{
     margin: 0;
     padding: 30px;
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 .true{
     text-decoration: line-through;
+    color: black;
 }
 
 .flex-wrapper {
@@ -42,13 +45,9 @@ input{
 }
 
 
-/* need to make a container for image and input area? */
-
-/* need table container? */
-
   table {
     border-collapse: collapse;
-    border: 1px solid teal;
+    border: 1px solid darkslateblue;
     text-align: center;
 	  vertical-align: middle;
     width: 100%;
@@ -59,7 +58,7 @@ input{
     background-color: white;
     margin-bottom: 50px;
   }
-
+/* 
   caption {
     font-weight: bold;
     font-size: 2.5rem;
@@ -71,7 +70,7 @@ input{
     width: 100%;
     color: darkslateblue;
     background-color: white;
-  }
+  } */
 
   thead {
     background-color: darkslateblue;
@@ -90,11 +89,12 @@ input{
   thead th {
     width: 20%;
   }
-/* highlight cell for emphasis */
+/* highlight cell for emphasis -not using this */
   .cell-highlight {
     background-color: darkseagreen;
     font-weight: bold;
-  }
+  } 
+
 
   tbody tr:nth-child(odd) {
     background-color: #fff;
@@ -102,6 +102,10 @@ input{
   
   tbody tr:nth-child(even) {
     background-color: #eee;
+  }
+
+  td{
+    color: black;
   }
 
   footer{
