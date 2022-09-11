@@ -1,10 +1,12 @@
 header{
     background-color: skyblue;
+   
 }
 h1{
     margin: 0;
     padding: 30px;
     text-align: center;
+    font-size: 2.5rem;
 }
 
 .true{
@@ -18,14 +20,27 @@ h1{
     justify-content: flex-start;
   }
   
-  .footer {
-    margin-top: auto;
-  }
+
 
 #inputArea{
+  display: flex;
+  margin-left: 100px;
+  padding: 50px;
+  
     /* margin-top: 15px; */
     /* margin-bottom: 50px; */
 }
+
+input{
+  width: 50%;
+  padding: 10px;
+  border: 2px solid darkslateblue
+}
+
+#addTaskButton{
+  margin-left: 5px;
+}
+
 
 /* need to make a container for image and input area? */
 
@@ -35,13 +50,14 @@ h1{
     border-collapse: collapse;
     border: 1px solid teal;
     text-align: center;
-	vertical-align: middle;
+	  vertical-align: middle;
     width: 100%;
     font-size: 2rem;
     color: slategray ;
     min-height: 10rem;
     /* border-right: 1rem solid darkslateblue; */
     background-color: white;
+    margin-bottom: 50px;
   }
 
   caption {
@@ -90,4 +106,6 @@ h1{
 
   footer{
     background-color: skyblue;
+    min-height: 150px;
+    margin-top: auto;
 }

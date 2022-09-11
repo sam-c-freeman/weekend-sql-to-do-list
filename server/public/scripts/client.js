@@ -9,12 +9,22 @@ $( document ).ready( function(){
 
 });
 
+
 //on click, the addTask function will run to add task to database and eventually DOM
 function setupClickListeners (){
-    $('#addTaskButton').on('click', addTask);
+    $('#addTaskButton').on('click', emptyCheck);
     $('#viewTasks').on('click', '.false', markCompleted)
     $('#viewTasks').on('click', '.deleteButton', deleteTask)
    
+}
+
+function emptyCheck(){
+  if($('#taskIn').val() == '' ){
+    alert("Please enter a task!"); 
+  } else
+  {
+    addTask ();
+  }
 }
 
 function addTask (){
@@ -57,8 +67,8 @@ function getTasks(){
 //does it need an argument?
 //I need to add a boolean value?
 function renderTasks (tasks){
-    $('#viewTasks').empty();
   
+  $('#viewTasks').empty();
     for(let task of tasks){
       $('#viewTasks').append(`
         <tr data-id="${task.id}" class="${task.completed}">
@@ -101,6 +111,3 @@ function deleteTask (){
       })
     }
 
-
-
-  //moved where true/false was from button to row
